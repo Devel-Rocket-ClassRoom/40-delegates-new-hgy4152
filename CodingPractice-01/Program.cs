@@ -83,7 +83,23 @@ Action<string, int> action = (msg, i) =>
 
 action("반복", 3);
 
+Func<int> number = () => 42;
+Func<int, int> square = (x) => x * x;
+Func<int, int, int> add = (x, y) => x + y;
+Func<int, int, string> addString = (x, y) => $"{x + y}";
 
+Console.WriteLine(number());
+Console.WriteLine(square(5));
+Console.WriteLine(add(5, 5));
+Console.WriteLine(addString(4, 4));
+
+Predicate<int> IsEven = (x) => x % 2 == 0;
+Predicate<int> IsPositive = (x) => x > 0;
+
+Console.WriteLine(IsEven(4));
+Console.WriteLine(IsEven(7));
+Console.WriteLine(IsPositive(5));
+Console.WriteLine(IsPositive(-3));
 
 static void RunnerCall(Runner runner)
 {
